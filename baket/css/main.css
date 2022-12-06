@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar {
+    padding: 10px 0;
+    background-color: beige;
+}
+.navbar__body{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-weight: 900;
+    font-size: 30px;
+}
+.basket {
+    font-size: 20px;
+    position: relative;
+}
+
+.count{
+    color: white;
+    font-size: 10px;
+    right: -5px;
+    top: -5px;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;    
+}
+
+.card {
+    padding: 50px 0;
+}
+.card__title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+}
+.cards__item {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards__name{
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+.cards__price{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.cards__button{
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: greenyellow;
+    cursor: pointer;
+}

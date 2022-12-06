@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cart {
+    padding: 50px 0;
+}
+.cart__title {
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+.cart__body {
+}
+
+.cart__item{
+    padding: 10px;
+    background-color: bisque;
+    border-top: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cart__name{
+    font-size: 18px;
+}
