@@ -32,7 +32,7 @@ body{
 }
 
 .cart__item{
-    padding: 10px;
+    padding: 10px 30px;
     background-color: bisque;
     border-top: 1px solid black;
     display: flex;
@@ -40,6 +40,33 @@ body{
     justify-content: space-between;
 }
 
+.cart__item:last-child{
+    border-bottom: 1px solid black;
+}
+
 .cart__name{
+    flex: 0 0 33.333%;
     font-size: 18px;
+}
+
+.cart__price{
+    flex: 0 0 33.333%;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+}
+.cart__count{
+    flex: 0 0 33.333%;
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cart__overall{
+    font-size: 18px;
+    font-weight: 500;
+}
+.cart__total{
+    font-size: 18px;
+    font-weight: 500;
 }
