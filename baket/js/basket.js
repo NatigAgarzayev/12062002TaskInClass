@@ -12,6 +12,7 @@ getBasketItems.forEach(item => {
             </div>
             <div class="cart__price">$${item.price}</div>
             <div class="cart__proccess">
+                <div class="cart__plus"><i class="fa-solid fa-plus"></i></div>
                 <div class="cart__count">${item.count}</div>
                 <div class="cart__minus"><i class="fa-solid fa-minus"></i></div>
             </div>
@@ -25,35 +26,35 @@ cart.addEventListener('click', (e) => {
     if(target.parentElement.className == 'cart__minus'){
         minusProductCount(e);
     }
+    if(target.parentElement.className == 'cart__plus'){
+        plusProductCount(e);
+    }
 });
 
 function minusProductCount(e){
     let cartId = e.target.parentElement.parentElement.parentElement.getAttribute('id');
     cartId = Number(cartId);
-    if(getBasketItems.length == 1){
-        getBasketItems = [];
-        localStorage.setItem('basket', JSON.stringify(getBasketItems));
-    }
     for(let i = 0; i < getBasketItems.length; i++){
-        if(getBasketItems[i].id == cartId){
+        if(+getBasketItems[i].id == cartId){
             getBasketItems[i].count -= 1;
-            if(getBasketItems[i].count < 1){
-                getBasketItems[i].count = 0;
-                e.target.parentElement.parentElement.parentElement.remove();
-                if(i == getBasketItems.length - 1){
-                    getBasketItems.pop();
-                    console.log('pop');
-                }
-                else if(i == 0){
-                    getBasketItems.shift();
-                    console.log('shift');
-                }
-                else{
-                    getBasketItems.splice(i, 1);
-                    console.log('splice');
-                }
-            }
             e.target.parentElement.previousElementSibling.innerText = `${getBasketItems[i].count}`;
+            if(getBasketItems[i].count == 0){
+                e.target.parentElement.parentElement.parentElement.remove();
+                getBasketItems.splice(i, 1);
+            }
+        }
+    }
+    makeTotal();
+    localStorage.setItem('basket', JSON.stringify(getBasketItems));
+}
+
+function plusProductCount(e){
+    let cartId = e.target.parentElement.parentElement.parentElement.getAttribute('id');
+    cartId = Number(cartId);
+    for(let i = 0; i < getBasketItems.length; i++){
+        if(+getBasketItems[i].id == cartId){
+            getBasketItems[i].count += 1;
+            e.target.parentElement.nextElementSibling.innerText = `${getBasketItems[i].count}`;
         }
     }
     makeTotal();

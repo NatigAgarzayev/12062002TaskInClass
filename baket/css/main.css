@@ -10,9 +10,21 @@ li{
     list-style: none;
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
 
 body{
     font-family: 'Montserrat', sans-serif;
+}
+
+body.active{
+    overflow: hidden;
 }
 
 .container{
@@ -74,6 +86,8 @@ body{
 .logo {
     font-weight: 900;
     font-size: 30px;
+    display: flex;
+    gap: 10px;
 }
 .basket {
     font-size: 20px;
@@ -108,7 +122,7 @@ body{
     grid-gap: 30px;
 }
 .cards__item {
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 20px;
     padding: 20px;
     display: flex;
@@ -138,6 +152,13 @@ body{
     padding: 10px 20px;
     background-color: greenyellow;
     cursor: pointer;
+    border: 2px solid black;
+    font-size: 18px;
+    transition: background-color 0.2s ease;
+}
+
+.cards__button:hover{
+    background-color: rgb(146, 243, 0);
 }
 
 .swiper {
@@ -173,10 +194,14 @@ body{
         position: absolute;
         z-index: 123;
         top: 0;
-        right: 0;
+        right: -100%;
+        
     }
     .navbar__list.active{
+        right: 0;
         display: block;
+        animation-name: fadeIn;
+        animation-duration: 0.2s;
     }
     .navbar__list.active li{
         margin-bottom: 25px;
@@ -199,5 +224,8 @@ body{
     .burger.active span:nth-child(3){
         transform: rotate(45deg);
         top: 50%;
+    }
+    .cards__image{
+        height: 300px;
     }
 }
