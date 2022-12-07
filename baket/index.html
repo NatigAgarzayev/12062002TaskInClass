@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
 </head>
 <body>
     <nav class="navbar">
@@ -16,13 +17,28 @@
                 <div class="logo">
                     Coffee Shop
                 </div>
-                <a href="./basket.html" class="basket">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <div class="count"></div>
-                </a>
+                <ul class="navbar__list">
+                    <li class="navbar__list-item"><a href="#">About</a></li>
+                    <li class="navbar__list-item"><a href="#">Contact</a></li>
+                    <li class="navbar__list-item">    
+                        <a href="./basket.html" class="basket">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="count"></div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+        </div>
+    </div>
     <div class="card">
         <div class="container">
             <div class="card__body">
@@ -33,6 +49,8 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="./js/main.js"></script>
+    <script src="./js/burger.js"></script>
 </body>
 </html>
