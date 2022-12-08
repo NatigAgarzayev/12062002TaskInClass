@@ -2,7 +2,8 @@ const cards = document.querySelector('.cards'),
     basket = document.querySelector('.basket'),
     counter = document.querySelector('.count'),
     swiperWrapper = document.querySelector('.swiper-wrapper');
-const products = [ { id: 1, image: './img/coffee-1.jpg' , name: 'Black', price: 2 }, { id: 2, image: './img/coffee-2.jpg', name: 'Latte', price: 5 }, { id: 3, image: './img/coffee-3.jpg', name: 'Espresso', price: 6 }, { id: 4, image: './img/coffee-4.jpg', name: 'Cappucino', price: 4 }, { id: 5, image: './img/coffee-5.jpg', name: 'Lungo', price: 3 }, { id: 6, image: './img/coffee-6.jpg', name: 'Macchiato', price: 6 } ]; let basketItems = [];
+const products = [ { id: 1, image: './img/coffee-1.jpg' , name: 'Black', price: 2 }, { id: 2, image: './img/coffee-2.jpg', name: 'Latte', price: 5 }, { id: 3, image: './img/coffee-3.jpg', name: 'Espresso', price: 6 }, { id: 4, image: './img/coffee-4.jpg', name: 'Cappucino', price: 4 }, { id: 5, image: './img/coffee-5.jpg', name: 'Lungo', price: 3 }, { id: 6, image: './img/coffee-6.jpg', name: 'Macchiato', price: 6 } ]; 
+let basketItems = [];
 counter.innerText = 0;
 let quant = 0;
 let count = 0;
@@ -50,18 +51,16 @@ function createCard(id, image, name, price){
         let cardId = e.target.parentNode.getAttribute('id');
         count += 1;
         if(basketItems.some(x => cardId == x.id)){
-            
+            for(let i = 0; i < basketItems.length; i++){
+                if(cardId == basketItems[i].id){
+                    basketItems[i].count += count;
+                }
+            }        
         }
         else{
-            basketItems.push({'id': `${id}`, 'image': `${image}` , 'name': `${name}`, 'price': `${price}`, 'count': 0});
+            basketItems.push({'id': `${id}`, 'image': `${image}` , 'name': `${name}`, 'price': `${price}`, 'count': 1});
         }
         
-
-        for(let i = 0; i < basketItems.length; i++){
-            if(cardId == basketItems[i].id){
-                basketItems[i].count += count;
-            }
-        }    
         count = 0;
         
         for(let i = 0; i < basketItems.length; i++){
@@ -148,6 +147,4 @@ function getBasket(){
         quant += getBasket[i].count;
     }
     counter.innerText = quant;
-
 }
-
