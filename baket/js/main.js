@@ -88,7 +88,7 @@ function getCount(){
 
 function getSliderImage(){
     let getProductsForSlider = JSON.parse(localStorage.getItem('products'));
-    for(let i = 0; i < getProductsForSlider.length - 2; i++){
+    for(let i = 0; i < getProductsForSlider.length; i++){
         let swiperSlide = document.createElement('div');
         let sliderImage = document.createElement('img');
         
