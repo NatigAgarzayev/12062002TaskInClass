@@ -2,7 +2,6 @@ const cart = document.querySelector('.cart__body');
 let getBasketItems = JSON.parse(localStorage.getItem('basket'));
 let sum = 0;
 getBasketItems.forEach(item => {
-    sum += +item.price * item.count;
     cart.innerHTML +=
     `
         <div class="cart__item" id=${item.id}>
